@@ -2,7 +2,7 @@ RISE AND RAIN OR SHINE
 Full Stack Web Application
 Weather-based-music-selection alarm clock
 
-#################### USER STORIES ###########################
+## USER STORIES
 
 **Given** I’m a first time user, I **want** a splash/landing page with **purpose** to introduce the web app.
 
@@ -40,7 +40,7 @@ _choose acceptable music tags_**(DISPLAY ALARM BUTTONS)**
 
      # Add dismiss button to end song and just display time 
 
-#################### Navigation flow ###########################
+## Navigation flow
 
 - Register (user creation)
 
