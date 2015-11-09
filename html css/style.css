@@ -1,0 +1,21 @@
+
+.container{
+  float:left;
+  position:relative;
+  height: 900px;
+  width: 100%;
+  background-color: blue;
+}
+.midd{
+  float:left;
+  height: 100%;
+  position: relative;
+  background-color: green;
+}
+
+.sidee{
+  float:left;
+  height: 100%;
+  position: relative;
+  background-color: maroon;
+}
