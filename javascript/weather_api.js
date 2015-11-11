@@ -84,6 +84,18 @@ readProfile: function readProfile(user_id, token, callback) {
   }, callback);
 },
 
+destroyProfile: function destroyProfile(user_id, token, callback) {
+  this.ajax({
+    method: 'DELETE',
+    url: this.url + '/users/' + user_id + '/profile',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    dataType: 'json'
+
+  }, callback);
+},
+
 showPairs: function showPairs(token, callback) {
   this.ajax({
     method: 'GET',
