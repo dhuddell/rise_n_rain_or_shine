@@ -1,0 +1,54 @@
+html,
+body,
+.row,
+#pageview{
+  height: 100%;
+  padding-left:0px;
+  padding-right:0px;
+}
+body{
+  margin:0px;
+}
+.side{
+  color:white;
+  font-weight: bold;
+}
+#pairings-table{
+  background-color: green;
+  text-align: center;
+
+}
+#pairings-table th{
+  background-color:teal;
+  text-align: center;
+
+}
+table{
+  text-align: center;
+}
+
+body .modal-content {
+    /* new custom width */
+    width: 760px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -80px;
+}
+
+.happy{
+  height: 100%;
+  padding:0px;
+
+  width:100%;
+  background-color: blue;
+}
+.mid{
+  height: 100%;
+
+  background-color: green;
+}
+
+.side{
+  margin:0px;
+  height: 100%;
+  background-color: maroon;
+}
