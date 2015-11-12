@@ -9,10 +9,6 @@ body,
 body{
   margin:0px;
 }
-.side{
-  color:white;
-  font-weight: bold;
-}
 #pairings-table{
   background-color: green;
   text-align: center;
@@ -44,11 +40,13 @@ body .modal-content {
 .mid{
   height: 100%;
 
-  background-color: green;
+  background-color: #272e38;
 }
 
 .side{
+  color:white;
+  font-weight: bold;
   margin:0px;
   height: 100%;
-  background-color: maroon;
+  background-color: #0f1620;
 }

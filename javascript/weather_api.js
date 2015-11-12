@@ -129,7 +129,8 @@ get_lat_lng: function get_lat_lng(zip_code, callback) {
     }, callback);
 },
 
-// Call to forecast.io asking for weather object
+// Call to forecast.io asking for weather object ***********    B R O K E N    **************
+
 get_weather: function get_weather(latlng, callback) {
     this.ajax({
       method: 'GET',
