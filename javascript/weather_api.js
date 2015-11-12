@@ -84,6 +84,18 @@ readProfile: function readProfile(user_id, token, callback) {
   }, callback);
 },
 
+destroyProfile: function destroyProfile(user_id, token, callback) {
+  this.ajax({
+    method: 'DELETE',
+    url: this.url + '/users/' + user_id + '/profile',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    dataType: 'json'
+
+  }, callback);
+},
+
 showPairs: function showPairs(token, callback) {
   this.ajax({
     method: 'GET',
@@ -110,15 +122,20 @@ createWeatherPair: function createWeatherPair(weather_pair, token, callback){
     }, callback)
 },
 
-
-
-// Call to forecast.io asking for weather object
-get_weather: function get_weather(id, callback) {
+get_lat_lng: function get_lat_lng(zip_code, callback) {
     this.ajax({
       method: 'GET',
-      url: 'https://api.forecast.io/forecast/0d2fae036c63eb41ba914a58600cb1ef/' + current_user.zip_code,
-      headers: {},
-      contentType: 'application/json; charset=utf-8'
+      url: 'http://maps.googleapis.com/maps/api/geocode/json?address=' + zip_code
+    }, callback);
+},
+
+// Call to forecast.io asking for weather object ***********    B R O K E N    **************
+
+get_weather: function get_weather(latlng, callback) {
+    this.ajax({
+      method: 'GET',
+      url: 'https://api.forecast.io/forecast/0d2fae036c63eb41ba914a58600cb1ef/' + latlng,
+      contentType: 'application/json'
     }, callback);
   },
 //////////////////////////////////////////////////////////////////////////////////////////

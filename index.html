@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/clock_style.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -22,7 +23,7 @@
   <!--                    MIDDLE COLUMN               -->
       <div class="col-md-6 col-md-push-2 mid">
 
-        <button type="submit" class='btn btn-danger btn-block' id="logout">Logout!</button>
+        <button type="submit" class='btn btn-default btn-block' style="background-color: #0f1620;color:white" id="logout">Logout!</button>
         <!--      FORMS MODAL          -->
         <div class= 'modal-dialog'>
           <div class= 'modal-content'>
@@ -30,51 +31,59 @@
               <div class='row'>
 
                 <!--      LOGIN FORM          -->
-                <div id="login_form" >
-                  <div class="col-xs-6 login">
-                    <div class="well">
-                      <form  id="login" class='login_form'>
-                        <span style="font-size: 1.5em;">Loginstration.</span><br>
-                        Email <input type='email' name='email' placeholder="Your email" ><br>
-                        Password <input type='password' name='password' ><br>
-                        <button type="submit" class='btn btn-success btn-block' form="login">Submit</button>
-                      </form>
-                    </div>
+                <div id='spacer'></div>
+                <div class="col-xs-6 login" id="login_form">
+                  <div class="well">
+                    <form  id="login" class='login_form'>
+                      <span style="font-size: 1.5em;">Loginstration.</span><br>
+                      Email <input type='email' name='email' placeholder="Your email" ><br>
+                      Password <input type='password' name='password' ><br>
+                      <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" form="login">Submit</button>
+                    </form>
                   </div>
                 </div>
 
 
                 <!--      REGISTER FORM          -->
-                <div id="register_form">
-                  <div class="col-xs-6 register">
-                    <div class="well">
-                      <form  id="register" class='register_form'>
-                        <span style="font-size: 1.5em;">Registration!</span><br>
-                        Email <input type='email' name='email' placeholder='Your email'><br>
-                        Password <input type='password' name='password'><br>
-                        Password Confirm <input type='password' name='password_confirmation'><br>
-                        <button type="submit" class='btn btn-success btn-block'>Register</button>
-                      </form>
-                    </div>
+
+                <div class="col-xs-6 register" id="register_form">
+                  <div class="well">
+                    <form  id="register" class='register_form'>
+                      <span style="font-size: 1.5em;">Registration!</span><br>
+                      Email <input type='email' name='email' placeholder='Your email'><br>
+                      Password <input type='password' name='password'><br>
+                      Password Confirm <input type='password' name='password_confirmation'><br>
+                      <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e">Register</button>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      <div id="clock" class="dark">
+        <div class="display">
+          <div class="weekdays"></div>
+          <div class="ampm"></div>
+          <div class="digits"></div>
+        </div>
+      </div>
       </div>
       <!--                    LEFT COLUMN               -->
       <div class="col-md-2 col-md-pull-6 side">
       </div>
       <!--                    RIGHT COLUMN              -->
       <div class="col-md-4 side">
-      <button type="button" class="btn btn-success btn-block" id='profile_buttons_display'>Profile?</button>
+      <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_buttons_display'>Profile?</button>
       <div class="row" id='profile_buttons'>
-        <div class="col-xs-6">
-          <button type="button" class="btn btn-success btn-block" id='profile_create'>Create?</button>
+        <div class="col-xs-3">
+          <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_create'>Create?</button>
+        </div>
+        <div class="col-xs-3">
+          <button type="button" class="btn btn-danger btn-block" id='profile_destroy'>DESTROY!</button>
         </div>
         <div class="col-xs-6">
-          <button type="button" class="btn btn-success btn-block" id='profile_edit'>Edit! / Fill!</button>
+          <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_edit'>Edit! / Fill!</button>
         </div>
       </div>
 
@@ -91,8 +100,8 @@
               <option value="doge">Doge</option>
             </select><br>
 
-            <button type="submit" class='btn btn-success btn-block' id="profile_submit" form="profile">SUBMIT PROFILE!</button><br>
-            <button type="button" class='btn btn-success btn-block' id="profile_update">FILL TABLE/UPDATE PROFILE!</button><br>
+            <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_submit" form="profile">SUBMIT PROFILE!</button><br>
+            <button type="button" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_update">FILL TABLE/UPDATE PROFILE!</button><br>
           </form>
   <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
           <form  id="pairs">
@@ -132,10 +141,14 @@
             </tr>
           </table>
         </div>
+      <h3> YOUR CURRENT WEATHER</h3>
+      <textarea class="weather" style="background-color: transparent; border-radius:5px"></textarea>
       </div>
     </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+  <script type="text/javascript" src="javascript/clock.js"> </script>
   <script type="text/javascript" src="javascript/bootstrap.min.js"> </script>
   <script type="text/javascript" src="javascript/weather_api.js"></script>
   <script type="text/javascript" src="javascript/script.js"></script>
