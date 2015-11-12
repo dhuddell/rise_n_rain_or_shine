@@ -1,45 +1,44 @@
 $(document).ready(function(){
 
-$('#logout').hide();
-$("#profile_buttons_display").hide();
-$('#profile_buttons').hide();
-$('#profile').hide();
-$('#profile_update').hide();
-$('#profile_submit').hide();
-$('#pairs').hide();
-$('#pairings-table').hide();
+// LANDING PAGE DISPLAY
+  $('#logout').hide();
+  $("#profile_buttons_display").hide();
+  $('#profile_buttons').hide();
+  $('#profile').hide();
+  $('#profile_update').hide();
+  $('#profile_submit').hide();
+  $('#pairs').hide();
+  $('#pairings-table').hide();
 
 ///////////////////////////////////////////////////////////////////////////
-//   LOGIN/REGISTER HELPER FUNCTIONS
-var form2object = function(form) {
-    var data = {};
-    $(form).find('input').each(function(index, element) {
-      var type = $(this).attr('type');
-      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
-        data[$(this).attr('name')] = $(this).val();
+// // LOGIN/REGISTER HELPER FUNCTIONS
+  var form2object = function(form) {
+      var data = {};
+      $(form).find('input').each(function(index, element) {
+        var type = $(this).attr('type');
+        if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+          data[$(this).attr('name')] = $(this).val();
+        }
+      });
+      return data;
+    };
+
+    var wrap = function wrap(root, formData) {
+      var wrapper = {};
+      wrapper[root] = formData;
+      return wrapper;
+    };
+
+    var callback = function callback(error, data) {
+      if (error) {
+        console.error(error);
+        return;
       }
-    });
-    return data;
-  };
-
-  var wrap = function wrap(root, formData) {
-    var wrapper = {};
-    wrapper[root] = formData;
-    return wrapper;
-  };
-
-  var callback = function callback(error, data) {
-    if (error) {
-      console.error(error);
-      return;
-    }
-    console.log(data);
-  };
-
+      console.log(data);
+    };
 
 ///////////////////////////////////////////////////////////////////////////
-// Register and Login/Logout Click Handlers
-
+// // Register and Login/Logout Click Handlers
 
 // REGISTER
   $('#register').on('submit', function(e) {
@@ -47,9 +46,11 @@ var form2object = function(form) {
     weather_api.register(credentials, callback);
     e.preventDefault();
     $('#register_form').hide();
+    $('#login_form').css('margin', '0px auto');
+    $('#spacer').addClass('col-xs-3');
   });
 
-//  LOGIN
+// LOGIN
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     weather_api.login(credentials, function(err, data){
@@ -60,6 +61,7 @@ var form2object = function(form) {
         user_id = data.user.id;
         console.log(data);
         $('.modal-dialog').hide();
+        $('#spacer').removeClass('col-xs-3');
         $('#logout').show();
         $("#profile_buttons_display").show();
       }
@@ -83,29 +85,26 @@ var form2object = function(form) {
     $('.modal-dialog').show();
   });
 
-
 ///////////////////////////////////////////////////////////////////////////
-// Register and Login/Logout Click Handlers
+// // Register and Login/Logout Click Handlers
 
-//PROFILE NAVIGATION BUTTONS
-$('#profile_buttons_display').on('click', function(){
-  if($("#profile").is(":visible")){
-    $('#profile').hide();
-  } else{
-    $('#profile_buttons').show();
-    $('#profile_buttons_display').hide();
-  }
-});
+// PROFILE NAVIGATION BUTTONS
+  $('#profile_buttons_display').on('click', function(){
+    if($("#profile").is(":visible")){
+      $('#profile').hide();
+    } else{
+      $('#profile_buttons').show();
+      $('#profile_buttons_display').hide();
+    }
+  });
 
-// PROFILE CREATE DISPLAY
-$('#profile_create').on("click", function(){
-  $('#profile_buttons').hide();
-  $('#profile').show();
-  $('#profile_buttons_display').show();
-  $('#profile_submit').show();
-
-
-});
+// PROFILE DISPLAY CREATION
+  $('#profile_create').on("click", function(){
+    $('#profile_buttons').hide();
+    $('#profile').show();
+    $('#profile_buttons_display').show();
+    $('#profile_submit').show();
+  });
 
 // PROFILE CREATION
   $('#profile').on('submit', function(e) {
@@ -120,6 +119,7 @@ $('#profile_create').on("click", function(){
         console.log(err)
       }else{
         profile_id = data.profile.id;
+        zip_code = data.profile.zip_code;
         console.log(data);
       }
     });
@@ -130,7 +130,7 @@ $('#profile_create').on("click", function(){
     $('#pairings-table').show();
   });
 
-//PROFILE DESTROY
+// PROFILE DESTROY
   $('#profile_destroy').on('click', function(){
     weather_api.destroyProfile(user_id, token, function(err, data){
       if(err){
@@ -141,24 +141,23 @@ $('#profile_create').on("click", function(){
     })
   });
 
-// PROFILE UPDATE DISPLAY
-$('#profile_edit').on("click", function(){
-  weather_api.readProfile(user_id, token, function(err, data){
-    if(err){
-      console.log(err)
-    }else{
-      $('#profile_buttons').hide();
-      $('#profile').show();
-      $('#profile_update').show();
-      $('#nickname').val(data.profiles[0]['nickname']);
-      $('#zip_code').val(data.profiles[0]['zip_code']);
-      console.log(data);
-    }
+// PROFILE DISPLAY UPDATE
+  $('#profile_edit').on("click", function(){
+    weather_api.readProfile(user_id, token, function(err, data){
+      if(err){
+        console.log(err)
+      }else{
+        $('#profile_buttons').hide();
+        $('#profile').show();
+        $('#profile_update').show();
+        $('#nickname').val(data.profiles[0]['nickname']);
+        $('#zip_code').val(data.profiles[0]['zip_code']);
+        console.log(data);
+      }
+    })
   })
-})
 
-
-// PROFILE UPDATE SUBMIT
+// PROFILE UPDATE SUBMIT + ZIP>LATLNG + GET WEATHER
   $('#profile_update').on('click',function(){
     var profile = wrap('profile', {
       "nickname": $("#nickname").val(),
@@ -169,49 +168,68 @@ $('#profile_edit').on("click", function(){
         console.log(err)
       }else{
         profile_id = data.profile.id;
+        zip = data.profile.zip_code;
+        console.log(zip_code);
         console.log(data);
+        // GET LAT LNG //// GET WEATHER
+          weather_api.get_lat_lng(zip, function(err, data){
+            if(err){
+              console.log(err)
+            }else{
+              console.log(data);
+              lat = data['results'][0]['geometry']['location']['lat']
+              lng = data['results'][0]['geometry']['location']['lng']
+              latlng = (lat + ',' + lng);
+              // GET WEATHER  **************************BROKEN****************
+                weather_api.get_weather(latlng,function(err, data){
+                  if(err){
+                    console.log(err)
+                  }else{
+                    console.log(data);
+                    $('.weather').val(data["currently"]["icon"]);
+                  }
+                });
+            }
+          });
       }
     })
-    $('#profile').hide();
-    $('#profile_buttons_display').show();
-    $('#pairs').show();
-    $('#pairings-table').show();
+    // NAVIGATION
+      $('#profile').hide();
+      $('#profile_buttons_display').show();
+      $('#pairs').show();
+      $('#pairings-table').show();
     // POPULATES TABLE
-    weather_api.showPairs(token, function(err, data){
-      if(err){
-        console.log(err)
-      }else{
-        console.log(data);
-        // $('#examples').remove();
-        data['weather_pairs'].forEach(function(pair){
-          $('#pairings-table tr:last').after('<tr><td>' + pair.weather +  '</td><td>' + pair.genre + '</td></tr>');
-        })
-      }
-    })
+      weather_api.showPairs(token, function(err, data){
+        if(err){
+          console.log(err)
+        }else{
+          console.log(data);
+          data['weather_pairs'].forEach(function(pair){
+            $('#pairings-table tr:last').after('<tr><td>' + pair.weather +  '</td><td>' + pair.genre + '</td></tr>');
+          })
+        }
+      })
 
   })
 
-
-
-
 // WEATHER PAIR CREATION
-$('#pairs').on('submit', function(e) {
-    var weather_pair = wrap('weather_pair', {
-      "weather":    $("#weather").val(),
-      "genre":      $("#genre").val(),
-      "profile_id": profile_id
+  $('#pairs').on('submit', function(e) {
+      var weather_pair = wrap('weather_pair', {
+        "weather":    $("#weather").val(),
+        "genre":      $("#genre").val(),
+        "profile_id": profile_id
+      });
+      weather_api.createWeatherPair(weather_pair, token, function(err, data){
+        if(err){
+          console.log(err)
+        }else{
+          console.log(data);
+        }
+      });
+      e.preventDefault();
+      $('#examples').remove();
+      $('#pairings-table tr:last').after(
+        '<tr><td>' + $('#weather').val() +  '</td><td>' + $('#genre').val() + '</td></tr>');
     });
-    weather_api.createWeatherPair(weather_pair, token, function(err, data){
-      if(err){
-        console.log(err)
-      }else{
-        console.log(data);
-      }
-    });
-    e.preventDefault();
-    $('#examples').remove();
-    $('#pairings-table tr:last').after(
-      '<tr><td>' + $('#weather').val() +  '</td><td>' + $('#genre').val() + '</td></tr>');
-  });
 })
 
