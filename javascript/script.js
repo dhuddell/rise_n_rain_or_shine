@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  var weather_display;
   // LANDING PAGE DISPLAY
     $('#logout').hide();
     $("#profile_buttons_display").hide();
@@ -172,6 +173,7 @@ $(document).ready(function(){
           profile_id = data.profile.id;
           console.log(data.profile.current_weather);
           $('.weather').val(data.profile.current_weather);
+          weather_display = data.profile.current_weather;
           console.log(data);
         }
       });
@@ -213,4 +215,5 @@ $(document).ready(function(){
           '<tr><td>' + $('#weather').val() +  '</td><td>' + $('#genre').val() + '</td></tr>');
     });
 });
+
 

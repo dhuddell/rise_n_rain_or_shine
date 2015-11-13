@@ -20,7 +20,7 @@
 
   <div class="row happy">
     <div class="container-fluid" id="pageview">
-  <!--                    MIDDLE COLUMN               -->
+  <!--             MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE COLUMN               -->
       <div class="col-md-6 col-md-push-2 mid">
 
         <button type="submit" class='btn btn-default btn-block' style="background-color: #0f1620;color:white" id="logout">Logout!</button>
@@ -61,74 +61,109 @@
             </div>
           </div>
         </div>
-      <div id="clock" class="dark">
-        <div class="display">
-          <div class="weekdays"></div>
-          <div class="ampm"></div>
-          <div class="digits"></div>
+        <!-- CLOCK MAGIC HAPPY TIME -->
+        <div id="clock" class="dark">
+          <div class="display">
+            <div class="weekdays"></div>
+            <div class="ampm"></div>
+            <div class="alarm"></div>
+            <div class="digits"></div>
+          </div>
+        </div>
+        <div class="button-holder">
+          <a class="alarm-button"></a>
+        </div>
+        <!-- CLOCK MAGIC HAPPY TIME -->
+        <div class="overlay">
+          <div id="alarm-dialog">
+            <h2>Set alarm after</h2>
+            <label class="hours">
+              Hours
+              <input type="number" value="0" min="0" />
+            </label>
+            <label class="minutes">
+              Minutes
+              <input type="number" value="0" min="0" />
+            </label>
+            <label class="seconds">
+              Seconds
+              <input type="number" value="0" min="0" />
+            </label>
+            <div class="button-holder">
+              <a id="alarm-set" class="button blue">Set</a>
+              <a id="alarm-clear" class="button red">Clear</a>
+            </div>
+            <a class="close"></a>
+          </div>
+        </div>
+        <div class="overlay">
+          <div id="time-is-up">
+            <h2>, boom.</h2>
+            <div class="button-holder">
+              <a class="button blue">Close</a>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-      <!--                    LEFT COLUMN               -->
+      <!--         LEFT LEFT LEFT LEFT LEFT LEFT LEFT COLUMN               -->
       <div class="col-md-2 col-md-pull-6 side">
       </div>
-      <!--                    RIGHT COLUMN              -->
+      <!--         RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT COLUMN              -->
       <div class="col-md-4 side">
-      <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_buttons_display'>Profile?</button>
-      <div class="row" id='profile_buttons'>
-        <div class="col-xs-3">
-          <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_create'>Create?</button>
+        <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_buttons_display'>Profile?</button>
+        <div class="row" id='profile_buttons'>
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_create'>Create?</button>
+          </div>
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-danger btn-block" id='profile_destroy'>DESTROY!</button>
+          </div>
+          <div class="col-xs-6">
+            <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_edit'>Edit! / Fill!</button>
+          </div>
         </div>
-        <div class="col-xs-3">
-          <button type="button" class="btn btn-danger btn-block" id='profile_destroy'>DESTROY!</button>
-        </div>
-        <div class="col-xs-6">
-          <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_edit'>Edit! / Fill!</button>
-        </div>
-      </div>
-
-  <!--    PROFILE FORM        -->
-          <form id="profile">
+        <!--    PROFILE FORM        -->
+        <form id="profile">
           Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you'><br>
           Zipcode <input type='text' class='form-control' id='zip_code' placeholder='ex: 90210'><br>
           Fav Meme  <select id="fav_meme" class="form-control">
-              <option value="doge">Doge</option>
-              <option value="doge">Doge</option>
-              <option value="doge">Doge</option>
-              <option value="doge">Doge</option>
-              <option value="doge">Doge</option>
-              <option value="doge">Doge</option>
-            </select><br>
+            <option value="doge">Doge</option>
+            <option value="doge">Doge</option>
+            <option value="doge">Doge</option>
+            <option value="doge">Doge</option>
+            <option value="doge">Doge</option>
+            <option value="doge">Doge</option>
+          </select><br>
 
-            <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_submit" form="profile">SUBMIT PROFILE!</button><br>
-            <button type="button" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_update">FILL TABLE/UPDATE PROFILE!</button><br>
-          </form>
-  <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
-          <form  id="pairs">
-            Please pair what genre you'd like for weather conditions!<br>
-            <div class='row'>
-              <!-- weather -->
-              <div class="col-xs-6">
-                <select id="weather" class="form-control">
-                  <option value="clear">Clear</option>        <!-- clear-day, clear-night,wind -->
-                  <option value="raining">Raining</option>    <!-- rain -->
-                  <option value="cloudy">Cloudy</option><!--fog,cloudy,partly-cloudy-day,partly-cloudy-night-->
-                  <option value="snowing">Snowing</option>    <!-- snow,sleet -->
-                </select>
-              </div>
-              <!-- genre -->
-              <div class="col-xs-6">
-                <select id="genre" class="form-control">
-                  <option value="pop">Pop</option><option value="hard_rock">Hard Rock</option><option value="rap">Rap</option>
-                  <option value="edm">EDM</option><option value="motown">Motown</option><option value="blues">Blues</option>
-                  <option value="folk">Folk</option><option value="country">Country</option><option value="indie_rock">Indie Rock</option>
-                  <option value="jazz">Jazz</option><option value="Reggae">Reggae</option><option value="ambient">Ambient</option>
-                </select>
-              </div>
+          <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_submit" form="profile">SUBMIT PROFILE!</button><br>
+          <button type="button" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_update">FILL TABLE/UPDATE PROFILE!</button><br>
+        </form>
+        <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
+        <form  id="pairs">
+          Please pair what genre you'd like for weather conditions!<br>
+          <div class='row'>
+            <!-- weather -->
+            <div class="col-xs-6">
+              <select id="weather" class="form-control">
+                <option value="clear">Clear</option>        <!-- clear-day, clear-night,wind -->
+                <option value="raining">Raining</option>    <!-- rain -->
+                <option value="cloudy">Cloudy</option><!--fog,cloudy,partly-cloudy-day,partly-cloudy-night-->
+                <option value="snowing">Snowing</option>    <!-- snow,sleet -->
+              </select>
             </div>
+            <!-- genre -->
+            <div class="col-xs-6">
+              <select id="genre" class="form-control">
+                <option value="pop">Pop</option><option value="hard_rock">Hard Rock</option><option value="rap">Rap</option>
+                <option value="edm">EDM</option><option value="motown">Motown</option><option value="blues">Blues</option>
+                <option value="folk">Folk</option><option value="country">Country</option><option value="indie_rock">Indie Rock</option>
+                <option value="jazz">Jazz</option><option value="Reggae">Reggae</option><option value="ambient">Ambient</option>
+              </select>
+            </div>
+          </div>
           <button type="submit" class='btn btn-primary btn-block pairings_container' form="pairs">Add!</button><br>
-          </form>
-        <!-- TABLE OF PAIRINGS -->
+        </form>
+        <!-- TABLE OF PAIRS -->
         <div class='table-responsive'>
           <table class="table" id='pairings-table'>
             <tr>
@@ -141,15 +176,15 @@
             </tr>
           </table>
         </div>
-      <h3> YOUR CURRENT WEATHER</h3>
-      <textarea class="weather" style="background-color: transparent; border-radius:5px"></textarea>
+        <h3> YOUR CURRENT WEATHER</h3>
+        <textarea class="weather" style="background-color: transparent; border-radius:5px"></textarea>
       </div>
     </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
-  <script type="text/javascript" src="javascript/clock.js"> </script>
   <script type="text/javascript" src="javascript/bootstrap.min.js"> </script>
   <script type="text/javascript" src="javascript/weather_api.js"></script>
   <script type="text/javascript" src="javascript/script.js"></script>
+  <script type="text/javascript" src="javascript/alarm.js"></script>
 </body>
