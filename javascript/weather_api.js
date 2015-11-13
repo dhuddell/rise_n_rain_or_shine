@@ -1,6 +1,7 @@
 'use strict';
 var weather_api = {
-  url: 'https://blooming-sands-2451.herokuapp.com',
+  //url: 'https://blooming-sands-2451.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
