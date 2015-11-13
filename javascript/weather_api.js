@@ -1,6 +1,6 @@
 'use strict';
 var weather_api = {
-  url: 'https://git.heroku.com/blooming-sands-2451.git',
+  url: 'https://blooming-sands-2451.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
