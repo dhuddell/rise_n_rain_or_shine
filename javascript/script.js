@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-  var weather_display;
   // LANDING PAGE DISPLAY
     $('#logout').hide();
     $("#profile_buttons_display").hide();
@@ -127,6 +126,7 @@ $(document).ready(function(){
       });
       e.preventDefault();
       $('#profile').hide();
+      $('#profile_submit').hide();
       $('#profile_buttons_display').show();
       $('#pairs').show();
       $('#pairings-table').show();
@@ -164,7 +164,6 @@ $(document).ready(function(){
       var profile = wrap('profile', {
         "nickname": $("#nickname").val(),
         "zip_code": $("#zip_code").val(),
-        'lat_lng': ''
       });
       weather_api.updateProfile(profile, user_id, token, function(err, data){
         if(err){
@@ -173,7 +172,6 @@ $(document).ready(function(){
           profile_id = data.profile.id;
           console.log(data.profile.current_weather);
           $('.weather').val(data.profile.current_weather);
-          weather_display = data.profile.current_weather;
           console.log(data);
         }
       });
