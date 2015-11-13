@@ -6,7 +6,7 @@
 #clock{
   width:390px;
   padding:40px;
-  margin:200px auto 60px;
+  margin:200px auto 0px;
   position:relative;
 }
 
@@ -52,7 +52,9 @@
 }
 
 #clock.dark .alarm{
-  background:url('../img/alarm_dark.jpg');
+  bottom:10px;
+  left:10px;
+  background:url('../alarm_dark.jpg');
 }
 
 #clock.dark .display{
@@ -284,3 +286,190 @@
   right:5px;
   font-size:12px;
 }
+
+/*-------------------------
+  The Alarm
+--------------------------*/
+
+
+#clock .alarm{
+  width:16px;
+  height:16px;
+  bottom:20px;
+  background:url('../img/alarm_dark.jpg');
+  position:absolute;
+  opacity:0.2;
+}
+
+#clock .alarm.active{
+  opacity:1;
+}
+
+
+/*-------------------------
+    Button
+--------------------------*/
+
+
+.button-holder{
+  text-align:center;
+  padding-bottom:100px;
+}
+
+a.button{
+  background-color:#f6a7b3;
+
+  background-image:-webkit-linear-gradient(top, #f6a7b3, #f0a3af);
+  background-image:-moz-linear-gradient(top, #f6a7b3, #f0a3af);
+  background-image:linear-gradient(top, #f6a7b3, #f0a3af);
+
+  border:1px solid #eb9ba7;
+  border-radius:2px;
+
+  box-shadow:0 2px 2px #ccc;
+
+  color:#fff;
+  text-decoration: none !important;
+  padding:15px 20px;
+  display:inline-block;
+  cursor:pointer;
+
+  position:relative;
+  z-index: 1;
+}
+
+a.button:hover{
+  opacity:0.9;
+}
+
+.alarm-button{
+  width: 101px;
+  height: 42px;
+  border-radius: 8px;
+  vertical-align: top;
+  margin-left: -6px;
+  margin-right: -44px;
+  display: inline-block;
+  background: url('../alarm_btn.png');
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+
+
+/*-------------------------
+  Alarm Dialog
+--------------------------*/
+
+
+/* Hide the arrows dispayed in number inputs in webkit */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+.overlay{
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-color:rgba(0,0,0,0.2);
+  z-index:10;
+}
+
+#alarm-dialog,
+#time-is-up{
+  width:500px;
+  height:375px;
+  background-color:#fff;
+  border-radius:2px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  position:fixed;
+  top:200px;
+  left:50%;
+  margin-left:-250px;
+  text-align:center;
+}
+
+#alarm-dialog h2{
+  text-transform: uppercase;
+  font-size:18px;
+  color:#5e6268;
+  padding: 50px 0;
+}
+
+#alarm-dialog label{
+  text-transform: uppercase;
+  background-color: #f4f4f4;
+  width: 80px;
+  height: 62px;
+  font-size: 11px;
+  display: inline-block;
+  padding: 10px;
+  margin: 4px;
+}
+
+#alarm-dialog label input{
+  display: block;
+  border: 0;
+  font: inherit;
+  font-size: 17px;
+  padding: 6px;
+  outline: none;
+  text-align: center;
+  width: 59px;
+  margin: 10px auto;
+  background-color:#fff;
+}
+
+#alarm-dialog .button-holder{
+  padding-top: 50px;
+  padding-bottom:0;
+}
+
+#alarm-dialog .button-holder .button{
+  box-shadow:0 2px 2px #eee;
+  padding:13px 22px;
+  margin:3px;
+}
+
+.button.blue{
+  background-color:#82cddd;
+
+  background-image:-webkit-linear-gradient(top, #86d3e4, #82cddd);
+  background-image:-moz-linear-gradient(top, #86d3e4, #82cddd);
+  background-image:linear-gradient(top, #86d3e4, #82cddd);
+
+  border-color:#72c1d2;
+}
+
+#alarm-dialog .close{
+  width: 36px;
+  height: 36px;
+  background: url('../close.png');
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  cursor:pointer;
+}
+
+
+#time-is-up{
+  height: 240px;
+}
+
+#time-is-up h2{
+  padding: 60px 0 40px;
+  font-size: 30px;
+}
+
+#time-is-up .button{
+  padding: 12px 20px;
+  box-shadow: 0 2px 2px #eee;
+}
+
