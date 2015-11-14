@@ -43,7 +43,15 @@ $(document).ready(function(){
     // REGISTER
       $('#register').on('submit', function(e) {
         var credentials = wrap('credentials', form2object(this));
-        weather_api.register(credentials, callback);
+        weather_api.register(credentials, function(err, data){
+          if(err){
+            conosole.log(err);
+            alert('Invalid creds, noob');
+          }else{
+            console.log(data);
+          }
+          }
+        });
         e.preventDefault();
         $('#register_form').hide();
         $('#login_form').css('margin', '0px auto');

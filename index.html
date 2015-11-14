@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/clock_style.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="icon" type="image/png" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -27,8 +27,8 @@
                   <div class="well">
                     <form  id="login" class='login_form'>
                       <span style="font-size: 1.5em;">Loginstration.</span><br>
-                      Email <input type='email' name='email' placeholder="Your email" ><br>
-                      Password <input type='password' name='password' ><br>
+                      Email <input type='email' name='email' placeholder="Your email" required><br>
+                      Password <input type='password' name='password' required><br>
                       <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" form="login">Submit</button>
                     </form>
                   </div>
@@ -41,9 +41,9 @@
                   <div class="well">
                     <form  id="register" class='register_form'>
                       <span style="font-size: 1.5em;">Registration!</span><br>
-                      Email <input type='email' name='email' placeholder='Your email'><br>
-                      Password <input type='password' name='password'><br>
-                      Password Confirm <input type='password' name='password_confirmation'><br>
+                      Email <input type='email' name='email' placeholder='Your email' required><br>
+                      Password <input type='password' name='password' required><br>
+                      Password Confirm <input type='password' name='password_confirmation' required><br>
                       <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e">Register</button>
                     </form>
                   </div>
@@ -114,8 +114,8 @@
         </div>
         <!--    PROFILE FORM        -->
         <form id="profile">
-          Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you'><br>
-          Zipcode <input type='text' class='form-control' id='zip_code' placeholder='ex: 90210'><br>
+          Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you' required><br>
+          Zipcode <input type='text' class='form-control' id='zip_code' placeholder='ex: 90210' required><br>
           Fav Meme  <select id="fav_meme" class="form-control">
             <option value="doge">Doge</option>
             <option value="doge">Doge</option>
@@ -151,7 +151,7 @@
               </select>
             </div>
           </div>
-          <button type="submit" class='btn btn-primary btn-block pairings_container' form="pairs">Add!</button><br>
+          <button type="submit" class='btn btn-block pairings_container' form="pairs">Add!</button><br>
         </form>
         <!-- TABLE OF PAIRS -->
         <div class='table-responsive'>
@@ -167,7 +167,7 @@
           </table>
         </div>
         <h3> YOUR CURRENT WEATHER</h3>
-        <textarea class="weather" style="background-color: transparent; border-radius:5px"></textarea>
+        <textarea rows=1 class="weather"></textarea>
       </div>
     </div>
   </div>
