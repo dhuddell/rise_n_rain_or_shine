@@ -11,7 +11,7 @@
 <body>
   <div class="row happy">
     <div class="container-fluid" id="pageview">
-  <!--             MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE COLUMN               -->
+    <!--             MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE COLUMN               -->
       <div class="col-md-6 col-md-push-2 mid">
 
         <button type="submit" class='btn btn-default btn-block' style="background-color: #0f1620;color:white" id="logout">Logout!</button>
@@ -21,7 +21,7 @@
             <div class= 'modal-body'>
               <div class='row'>
 
-                <!--      LOGIN FORM          -->
+              <!--      LOGIN FORM          -->
                 <div id='spacer'></div>
                 <div class="col-xs-6 login" id="login_form">
                   <div class="well">
@@ -33,10 +33,7 @@
                     </form>
                   </div>
                 </div>
-
-
-                <!--      REGISTER FORM          -->
-
+              <!--      REGISTER FORM          -->
                 <div class="col-xs-6 register" id="register_form">
                   <div class="well">
                     <form  id="register" class='register_form'>
@@ -52,7 +49,9 @@
             </div>
           </div>
         </div>
-        <!-- CLOCK MAGIC HAPPY TIME -->
+      <!-- SoundCloud Widet -->
+        <!-- <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe> -->
+      <!-- CLOCK MAGIC HAPPY TIME -->
         <div id="clock" class="dark">
           <div class="display">
             <div class="weekdays"></div>
@@ -64,7 +63,7 @@
         <div class="button-holder">
           <a class="alarm-button"></a>
         </div>
-        <!-- CLOCK POPUP HAPPY TIME -->
+      <!-- CLOCK POPUP HAPPY TIME -->
         <div class="overlay">
           <div id="alarm-dialog">
             <h2>Set alarm after</h2>
@@ -95,10 +94,10 @@
           </div>
         </div>
       </div>
-      <!--         LEFT LEFT LEFT LEFT LEFT LEFT LEFT COLUMN               -->
+    <!--         LEFT LEFT LEFT LEFT LEFT LEFT LEFT COLUMN               -->
       <div class="col-md-2 col-md-pull-6 side">
       </div>
-      <!--         RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT COLUMN              -->
+    <!--         RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT COLUMN              -->
       <div class="col-md-4 side">
         <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_buttons_display'>Profile?</button>
         <div class="row" id='profile_buttons'>
@@ -112,10 +111,10 @@
             <button type="button" class="btn btn-default btn-block" style="background-color:#797b7e" id='profile_edit'>Edit! / Fill!</button>
           </div>
         </div>
-        <!--    PROFILE FORM        -->
+      <!--    PROFILE FORM        -->
         <form id="profile">
           Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you' required><br>
-          Zipcode <input type='number' class='form-control' id='zip_code' placeholder='ex: 90210' pattern="[0-9]*" maxlength="5" min="0" title="5 numbers required" required><br>
+          Zipcode <input type='number' class='form-control' id='zip_code' placeholder='ex: 90210' pattern="[0-9]{3,5}" oninvalid="setCustomValidity('Please enter valid zip')" title="5 numbers required" required><br>
           Fav Meme  <select id="fav_meme" class="form-control">
             <option value="doge">Doge</option>
             <option value="doge">Doge</option>
@@ -128,7 +127,7 @@
           <button type="submit" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_submit" form="profile">SUBMIT PROFILE!</button><br>
           <button type="button" class='btn btn-default btn-block' style="background-color:#797b7e" id="profile_update">FILL TABLE/UPDATE PROFILE!</button><br>
         </form>
-        <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
+      <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
         <form  id="pairs">
           Please pair what genre you'd like for weather conditions!<br>
           <div class='row'>
@@ -141,7 +140,7 @@
                 <option value="snowing">Snowing</option>    <!-- snow,sleet -->
               </select>
             </div>
-            <!-- genre -->
+          <!-- genre -->
             <div class="col-xs-6">
               <select id="genre" class="form-control">
                 <option value="pop">Pop</option><option value="hard_rock">Hard Rock</option><option value="rap">Rap</option>
@@ -153,16 +152,16 @@
           </div>
           <button type="submit" class='btn btn-block pairings_container' form="pairs">Add!</button><br>
         </form>
-        <!-- TABLE OF PAIRS -->
-        <div class='table-responsive'>
+      <!-- TABLE OF PAIRS -->
+        <div class='table-responsive table-curved'>
           <table class="table" id='pairings-table'>
             <tr>
-              <th> Weather </th>
-              <th> Genre </th>
+              <th>Weather</th>
+              <th>Genre</th>
             </tr>
             <tr id='examples'>
-              <td> Ex: Clear </td>
-              <td> Ex: Motown </td>
+              <td>Ex: Clear</td>
+              <td>Ex: Motown</td>
             </tr>
           </table>
         </div>
@@ -172,6 +171,7 @@
     </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+  <script type="text/javascript" src="https://w.soundcloud.com/player/api.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
   <script type="text/javascript" src="javascript/bootstrap.min.js"> </script>
   <script type="text/javascript" src="javascript/weather_api.js"></script>

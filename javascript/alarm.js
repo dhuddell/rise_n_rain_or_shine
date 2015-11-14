@@ -1,7 +1,6 @@
 $(function(){
 
   // Cache some selectors
-
   var clock = $('#clock'),
     alarm = clock.find('.alarm'),
     ampm = clock.find('.ampm'),

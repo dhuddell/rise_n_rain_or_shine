@@ -317,13 +317,12 @@
 }
 
 a.button{
-  background-color:#f6a7b3;
+  background-color:darkgrey;
 
-  background-image:-webkit-linear-gradient(top, #f6a7b3, #f0a3af);
+  background-image:-webkit-linear-gradient(top, black, darkgrey);
   background-image:-moz-linear-gradient(top, #f6a7b3, #f0a3af);
   background-image:linear-gradient(top, #f6a7b3, #f0a3af);
 
-  border:1px solid #eb9ba7;
   border-radius:2px;
 
   box-shadow:0 2px 2px #ccc;
@@ -384,23 +383,23 @@ input::-webkit-inner-spin-button {
 
 #alarm-dialog,
 #time-is-up{
-  width:800px;
-  height:375px;
+  width:400px;
+  height:300px;
   background-color:#fff;
   border-radius:10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   position:fixed;
   top:200px;
-  left:40%;
+  left:50%;
   margin-left:-250px;
   text-align:center;
 }
 
 #alarm-dialog h2{
   text-transform: uppercase;
-  font-size:18px;
+  font-size:2em;
   color:#5e6268;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 #alarm-dialog label{
@@ -409,8 +408,9 @@ input::-webkit-inner-spin-button {
   width: 80px;
   height: 62px;
   font-size: 11px;
+  border-radius: 10px;
   display: inline-block;
-  padding: 10px;
+  padding: 10px 10px 80px 10px;
   margin: 4px;
 }
 
@@ -428,7 +428,7 @@ input::-webkit-inner-spin-button {
 }
 
 #alarm-dialog .button-holder{
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom:0;
 }
 
@@ -440,13 +440,13 @@ input::-webkit-inner-spin-button {
 }
 
 .button.blue{
-  background-color:#82cddd;
+  background-color:grey;
 
-  background-image:-webkit-linear-gradient(top, #86d3e4, #82cddd);
+  background-image:-webkit-linear-gradient(top, darkslategrey, lightgrey);
   background-image:-moz-linear-gradient(top, #86d3e4, #82cddd);
   background-image:linear-gradient(top, #86d3e4, #82cddd);
 
-  border-color:#72c1d2;
+  border-color:grey;
 }
 
 #alarm-dialog .close{
@@ -461,9 +461,12 @@ input::-webkit-inner-spin-button {
 
 
 #time-is-up{
+  width:800px;
   height: 240px;
   line-height: 200px;
   font-size: 1.8em;
+  left:40%;
+
 }
 
 #time-is-up h2{
