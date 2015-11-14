@@ -55,6 +55,7 @@ String.prototype.capitalizeFirstLetter = function() {
         weather_api.register(credentials, function(err, data){
           if(err){
             console.log(err);
+            return;
           }else{
             console.log(data);
           }
@@ -72,6 +73,7 @@ String.prototype.capitalizeFirstLetter = function() {
           if(err){
             console.log(err)
             alert('Invalid creds, noob');
+            return;
           }else{
             token = data.user.token;
             user_id = data.user.id;
@@ -99,6 +101,9 @@ String.prototype.capitalizeFirstLetter = function() {
         $('#logout').hide();
         $("#profile_buttons_display").hide();
         $('.modal-dialog').show();
+        $('#register_form').show();
+        $('#profile_buttons').hide();
+        $('#profile').hide();
       });
 
   ///////////////////////////////////////////////////////////////////////////
@@ -156,6 +161,8 @@ String.prototype.capitalizeFirstLetter = function() {
       weather_api.destroyProfile(user_id, token, function(err, data){
         if(err){
           console.log(err)
+          alert("No profile to destroy, silly!");
+          return;
         }else{
           console.log('Deleted');
         }
@@ -187,6 +194,8 @@ String.prototype.capitalizeFirstLetter = function() {
       weather_api.updateProfile(profile, user_id, token, function(err, data){
         if(err){
           console.log(err)
+          alert("No profile to update, silly!");
+          return;
         }else{
           profile_id = data.profile.id;
           console.log(data.profile.current_weather);
