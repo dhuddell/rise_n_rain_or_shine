@@ -115,7 +115,7 @@
         <!--    PROFILE FORM        -->
         <form id="profile">
           Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you' required><br>
-          Zipcode <input type='text' class='form-control' id='zip_code' placeholder='ex: 90210' required><br>
+          Zipcode <input type='number' class='form-control' id='zip_code' placeholder='ex: 90210' pattern="[0-9]*" maxlength="5" min="0" title="5 numbers required" required><br>
           Fav Meme  <select id="fav_meme" class="form-control">
             <option value="doge">Doge</option>
             <option value="doge">Doge</option>

@@ -28,7 +28,7 @@ $(document).ready(function(){
       wrapper[root] = formData;
       return wrapper;
     };
-
+        // IS THIS NECESSARY?!
     var callback = function callback(error, data) {
       if (error) {
         console.error(error);
@@ -45,11 +45,9 @@ $(document).ready(function(){
         var credentials = wrap('credentials', form2object(this));
         weather_api.register(credentials, function(err, data){
           if(err){
-            conosole.log(err);
-            alert('Invalid creds, noob');
+            console.log(err);
           }else{
             console.log(data);
-          }
           }
         });
         e.preventDefault();
@@ -64,6 +62,7 @@ $(document).ready(function(){
         weather_api.login(credentials, function(err, data){
           if(err){
             console.log(err)
+            alert('Invalid creds, noob');
           }else{
             token = data.user.token;
             user_id = data.user.id;
@@ -129,7 +128,7 @@ $(document).ready(function(){
           profile_id = data.profile.id;
           zip_code = data.profile.zip_code;
           console.log(data);
-          $('.weather').val(profile.current_weather);
+          $('.weather').val(profile.current_weather.replace(/-/g,' ').replace(/\b./g, function(m){ return m.toUpperCase(); }));
         }
       });
       e.preventDefault();
@@ -179,7 +178,7 @@ $(document).ready(function(){
         }else{
           profile_id = data.profile.id;
           console.log(data.profile.current_weather);
-          $('.weather').val(data.profile.current_weather);
+          $('.weather').val(data.profile.current_weather.replace(/-/g,' ').replace(/\b./g, function(m){ return m.toUpperCase(); }));
           console.log(data);
         }
       });
