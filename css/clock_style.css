@@ -6,7 +6,7 @@
 #clock{
   width:390px;
   padding:40px;
-  margin:200px auto 0px;
+  margin:100px auto 0px;
   position:relative;
 }
 
@@ -342,12 +342,11 @@ a.button:hover{
 }
 
 .alarm-button{
-  width: 101px;
-  height: 42px;
-  border-radius: 8px;
+  width: 108px;
+  height: 55px;
+  border-radius: 15px;
+  border: 5px solid white;
   vertical-align: top;
-  margin-left: -6px;
-  margin-right: -44px;
   display: inline-block;
   background: url('../alarm_btn.png');
   position: relative;
@@ -449,7 +448,7 @@ input::-webkit-inner-spin-button {
   border-color:grey;
 }
 
-#alarm-dialog .close{
+#alarm-dialog .closer{
   width: 36px;
   height: 36px;
   background: url('../close.png');
@@ -457,6 +456,7 @@ input::-webkit-inner-spin-button {
   top: -18px;
   right: -18px;
   cursor:pointer;
+  opacity: 0.9;
 }
 
 

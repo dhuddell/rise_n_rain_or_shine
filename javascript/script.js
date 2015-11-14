@@ -2,16 +2,19 @@ $(document).ready(function(){
 
   // LANDING PAGE DISPLAY
     $('#logout').hide();
+
     $("#profile_buttons_display").hide();
     $('#profile_buttons').hide();
     $('#profile').hide();
     $('#profile_update').hide();
     $('#profile_submit').hide();
+
     $('#pairs').hide();
     $('#pairings-table').hide();
+
     $('#sc-widget').hide();
     $('.alarm-button').hide();
-
+    $('#weather_display').hide();
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.replace(/\b./g, function(m){ return m.toUpperCase(); });
@@ -145,6 +148,7 @@ String.prototype.capitalizeFirstLetter = function() {
       $('#pairs').show();
       $('#pairings-table').show();
       $('.alarm-button').show();
+      $('#weather_display').show();
     });
 
   // PROFILE DESTROY
@@ -195,6 +199,7 @@ String.prototype.capitalizeFirstLetter = function() {
       $('#profile_buttons_display').show();
       $('#pairs').show();
       $('.alarm-button').show();
+      $('#weather_display').show();
       $('#pairings-table').show();
     // POPULATES TABLE
       weather_api.showPairs(token, function(err, data){

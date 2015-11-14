@@ -12,8 +12,13 @@ body{
 #pairings-table{
   background-color: #272e38;
   text-align: center;
-
+  border-top: 10px solid white;
+  border-bottom: 5px solid white;
 }
+.login, .register{
+  font-size: 1.2em;
+}
+
 #pairings-table th{
   background-color: #8b8b8b;
   text-align: center;
