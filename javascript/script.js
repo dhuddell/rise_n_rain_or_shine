@@ -58,12 +58,12 @@ String.prototype.capitalizeFirstLetter = function() {
             return;
           }else{
             console.log(data);
+            $('#register_form').hide();
+            $('#login_form').css('margin', '0px auto');
+            $('#spacer').addClass('col-xs-3');
           }
         });
         e.preventDefault();
-        $('#register_form').hide();
-        $('#login_form').css('margin', '0px auto');
-        $('#spacer').addClass('col-xs-3');
       });
 
     // LOGIN
@@ -165,6 +165,12 @@ String.prototype.capitalizeFirstLetter = function() {
           return;
         }else{
           console.log('Deleted');
+          $('#profile_buttons_display').show();
+          $('#profile_buttons').hide();
+          $('#pairs').hide();
+          $('#pairings-table').hide();
+          $('.alarm-button').hide();
+          $('#weather_display').hide();
         }
       })
     });
@@ -201,27 +207,28 @@ String.prototype.capitalizeFirstLetter = function() {
           console.log(data.profile.current_weather);
           $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
           console.log(data);
+        // NAVIGATION
+          $('#profile').hide();
+          $('#profile_buttons_display').show();
+          $('#pairs').show();
+          $('.alarm-button').show();
+          $('#weather_display').show();
+          $('#pairings-table').show();
+        // POPULATES TABLE
+          weather_api.showPairs(token, function(err, data){
+            if(err){
+              console.log(err)
+            }else{
+              console.log(data);
+              $('#examples').remove();
+              data['weather_pairs'].forEach(function(pair){
+                $('#pairings-table tr:last').after('<tr><td>' + pair.weather.capitalizeFirstLetter() +  '</td><td>' + pair.genre.replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
+              });
+            }
+          })
         }
       });
-    // NAVIGATION
-      $('#profile').hide();
-      $('#profile_buttons_display').show();
-      $('#pairs').show();
-      $('.alarm-button').show();
-      $('#weather_display').show();
-      $('#pairings-table').show();
-    // POPULATES TABLE
-      weather_api.showPairs(token, function(err, data){
-        if(err){
-          console.log(err)
-        }else{
-          console.log(data);
-          $('#examples').remove();
-          data['weather_pairs'].forEach(function(pair){
-            $('#pairings-table tr:last').after('<tr><td>' + pair.weather.capitalizeFirstLetter() +  '</td><td>' + pair.genre.replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
-          });
-        }
-      })
+
     });
 
   // WEATHER PAIR CREATION
