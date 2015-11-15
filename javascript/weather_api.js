@@ -1,7 +1,7 @@
 'use strict';
 var weather_api = {
-  url: 'https://blooming-sands-2451.herokuapp.com',
-  //url: 'http://localhost:3000',
+  //url: 'https://blooming-sands-2451.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -139,72 +139,4 @@ get_weather: function get_weather(latlng, callback) {
       contentType: 'application/json'
     }, callback);
   },
-//////////////////////////////////////////////////////////////////////////////////////////
-
-  //Authenticated api actions
-  listGames: function (token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/games',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
-      }, callback);
-  },
-
-  createGame: function (token, callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/games',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({}),
-      dataType: 'json',
-    }, callback);
-  },
-
-  showGame: function (id, token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/games/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
-    }, callback);
-  }
 };
-
-// };
-
-
-// //$(document).ready(...
-// $(function() {
-
-
-//   $('#login').on('submit', function(e) {
-//     var credentials = wrap('credentials', form2object(this));
-//     var cb = function cb(error, data) {
-//       if (error) {
-//         callback(error);
-//         return;
-//       }
-//       callback(null, data);
-//       $('.token').val(data.user.token);
-//     };
-//     e.preventDefault();
-//     weather_api.login(credentials, cb);
-//   });
-
-//   $('#create-game').on('submit', function(e) {
-//     var token = $(this).children('[name="token"]').val();
-//     e.preventDefault();
-//     weather_api.createGame(token, callback);
-//   });
-//
-
-
-

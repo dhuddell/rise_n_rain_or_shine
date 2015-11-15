@@ -2,14 +2,23 @@ $(document).ready(function(){
 
   // LANDING PAGE DISPLAY
     $('#logout').hide();
+
     $("#profile_buttons_display").hide();
     $('#profile_buttons').hide();
     $('#profile').hide();
     $('#profile_update').hide();
     $('#profile_submit').hide();
+
     $('#pairs').hide();
     $('#pairings-table').hide();
 
+    $('#sc-widget').hide();
+    $('.alarm-button').hide();
+    $('#weather_display').hide();
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.replace(/\b./g, function(m){ return m.toUpperCase(); });
+}
   ///////////////////////////////////////////////////////////////////////////
   // // LOGIN/REGISTER HELPER FUNCTIONS
     var form2object = function(form) {
@@ -28,7 +37,7 @@ $(document).ready(function(){
       wrapper[root] = formData;
       return wrapper;
     };
-
+        // IS THIS NECESSARY?!
     var callback = function callback(error, data) {
       if (error) {
         console.error(error);
@@ -43,11 +52,18 @@ $(document).ready(function(){
     // REGISTER
       $('#register').on('submit', function(e) {
         var credentials = wrap('credentials', form2object(this));
-        weather_api.register(credentials, callback);
+        weather_api.register(credentials, function(err, data){
+          if(err){
+            console.log(err);
+            return;
+          }else{
+            console.log(data);
+            $('#register_form').hide();
+            $('#login_form').css('margin', '0px auto');
+            $('#spacer').addClass('col-xs-3');
+          }
+        });
         e.preventDefault();
-        $('#register_form').hide();
-        $('#login_form').css('margin', '0px auto');
-        $('#spacer').addClass('col-xs-3');
       });
 
     // LOGIN
@@ -56,6 +72,8 @@ $(document).ready(function(){
         weather_api.login(credentials, function(err, data){
           if(err){
             console.log(err)
+            alert('Invalid creds, noob');
+            return;
           }else{
             token = data.user.token;
             user_id = data.user.id;
@@ -83,6 +101,9 @@ $(document).ready(function(){
         $('#logout').hide();
         $("#profile_buttons_display").hide();
         $('.modal-dialog').show();
+        $('#register_form').show();
+        $('#profile_buttons').hide();
+        $('#profile').hide();
       });
 
   ///////////////////////////////////////////////////////////////////////////
@@ -120,8 +141,9 @@ $(document).ready(function(){
         }else{
           profile_id = data.profile.id;
           zip_code = data.profile.zip_code;
+          console.log(data.profile.current_weather);
           console.log(data);
-          $('.weather').val(profile.current_weather);
+          $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
         }
       });
       e.preventDefault();
@@ -130,6 +152,8 @@ $(document).ready(function(){
       $('#profile_buttons_display').show();
       $('#pairs').show();
       $('#pairings-table').show();
+      $('.alarm-button').show();
+      $('#weather_display').show();
     });
 
   // PROFILE DESTROY
@@ -137,8 +161,16 @@ $(document).ready(function(){
       weather_api.destroyProfile(user_id, token, function(err, data){
         if(err){
           console.log(err)
+          alert("No profile to destroy, silly!");
+          return;
         }else{
           console.log('Deleted');
+          $('#profile_buttons_display').show();
+          $('#profile_buttons').hide();
+          $('#pairs').hide();
+          $('#pairings-table').hide();
+          $('.alarm-button').hide();
+          $('#weather_display').hide();
         }
       })
     });
@@ -168,29 +200,35 @@ $(document).ready(function(){
       weather_api.updateProfile(profile, user_id, token, function(err, data){
         if(err){
           console.log(err)
+          alert("No profile to update, silly!");
+          return;
         }else{
           profile_id = data.profile.id;
           console.log(data.profile.current_weather);
-          $('.weather').val(data.profile.current_weather);
+          $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
           console.log(data);
+        // NAVIGATION
+          $('#profile').hide();
+          $('#profile_buttons_display').show();
+          $('#pairs').show();
+          $('.alarm-button').show();
+          $('#weather_display').show();
+          $('#pairings-table').show();
+        // POPULATES TABLE
+          weather_api.showPairs(token, function(err, data){
+            if(err){
+              console.log(err)
+            }else{
+              console.log(data);
+              $('#examples').remove();
+              data['weather_pairs'].forEach(function(pair){
+                $('#pairings-table tr:last').after('<tr><td>' + pair.weather.capitalizeFirstLetter() +  '</td><td>' + pair.genre.replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
+              });
+            }
+          })
         }
       });
-    // NAVIGATION
-      $('#profile').hide();
-      $('#profile_buttons_display').show();
-      $('#pairs').show();
-      $('#pairings-table').show();
-    // POPULATES TABLE
-      weather_api.showPairs(token, function(err, data){
-        if(err){
-          console.log(err)
-        }else{
-          console.log(data);
-          data['weather_pairs'].forEach(function(pair){
-            $('#pairings-table tr:last').after('<tr><td>' + pair.weather +  '</td><td>' + pair.genre + '</td></tr>');
-          });
-        }
-      })
+
     });
 
   // WEATHER PAIR CREATION
@@ -210,7 +248,7 @@ $(document).ready(function(){
         e.preventDefault();
         $('#examples').remove();
         $('#pairings-table tr:last').after(
-          '<tr><td>' + $('#weather').val() +  '</td><td>' + $('#genre').val() + '</td></tr>');
+          '<tr><td>' + $('#weather').val().capitalizeFirstLetter() +  '</td><td>' + $('#genre').val().replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
     });
 });
 

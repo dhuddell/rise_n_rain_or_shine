@@ -1,7 +1,6 @@
 $(function(){
 
   // Cache some selectors
-
   var clock = $('#clock'),
     alarm = clock.find('.alarm'),
     ampm = clock.find('.ampm'),
@@ -113,7 +112,7 @@ $(function(){
       alarm.addClass('active');
     }
     else if(alarm_counter == 0){
-      $('#time-is-up').text("Time's up! AND! Current weather is " + $('.weather').val() + '.');
+      $('#time-is-up').text("Hey " + $('#nickname').val() + "! Your current weather is " + $('.weather').val() + '.');
       time_is_up.fadeIn();
 
       // Play the alarm sound. This will fail
