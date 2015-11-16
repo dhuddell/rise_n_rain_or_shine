@@ -1,4 +1,4 @@
-RISE AND RAIN OR SHINE
+#RISE AND RAIN OR SHINE
 
 https://github.com/dhuddell/weather_back_end
 
@@ -6,10 +6,7 @@ Full Stack Web Application
 Weather-based-music-selection alarm clock
 
 ## USER STORIES
-
-**Given** I’m a first time user, I **want** a splash/landing page with **purpose** to introduce the web app.
-
-     # HTML includes landing page with css animation + fun
+###Achieved:
 
 **Given** I’m a first time user on the splash page, I **want** to register with **purpose** to be a create a unique id.
 
@@ -19,25 +16,45 @@ Weather-based-music-selection alarm clock
 
      # HTML holds form with email input, pw input, and submit_(login?)_ button. **(DISPLAY ALARM BUTTONS)**
 
-****Given** I’m a first time user on the splash page, I **want** to register AND login(at once) **purpose** to be a unique id and interact securely. **# Button runs register + login
-
 **Given** I’ve logged in for the FIRST TIME, I **want** to customize my profile **purpose** to keep useful info on my profile. 
 
-     # In-depth profile+LOCATION, link **fbook, link **soundcloud,
-
-_choose acceptable music tags_**(DISPLAY ALARM BUTTONS)**
+     # In-depth profile with nickname, location, and then music preferences
 
 **Given** I’ve filled my in-depth profile, I **want** to set an alarm **purpose** to be sure I’ll be woken up
 
-     # Get time, set wake_up_time, cue music file/url
+     # Get time, set wake_up_time
 
-**Given** the time for my alarm arrives, I **want** weather-based music **purpose** to make me happy
+**Given** I have set an alarm, I** want**  to cancel that alarm **purpose** I don’t need it anymore
+
+     # Hit button to clear alarm
+
+**Given** I have created a profile, I **want** to update that profile **purpose** I moved to a new city
+
+    # Use READ and UPDATE to display and then change a profile
+
+**Given** I have created a profile, I **want** to destroy that profile **purpose** I hate Dan Huddell
+
+    # Use DELETE to destroy the current profile
+
+**Given** I have created a profile, I **want** to see local weather **purpose** to know the weather.
+
+    # Change zip code into Lat/Lng (GoogleMapsAPI), use Lat/Lng with ForecastIO_API to return current weather
+
+
+
+###In Progress:
+
+**Given** I’m a first time user, I **want** a splash/landing page with **purpose** to introduce the web app.
+
+     # HTML includes landing page with css animation + fun
+
+**Given** I’m a first time user on the splash page, I **want** to register AND login(at once) **purpose** to be a unique id and interact securely.
+
+     # Button runs register + login
+
+**Given** the time for my alarm arrives, I **want** MY weather-based music **purpose** to make me happy
 
     # Get time, compare to wake_up_time, find local weather info, use tags to choose song, play song
-
-**Given** I have set an alarm, I** want**  to cancel that alarm** purpose** I don’t need it anymore
-
-     #Hit button to cancel event listener
 
 **Given** I hear my alarm, I **want** to turn off the song **purpose** I’m now awake and don’t need music
 
@@ -49,9 +66,9 @@ _choose acceptable music tags_**(DISPLAY ALARM BUTTONS)**
 
 - Login (auth)
 
-- Profile creation w/ home location (in-depth content)
+- Profile creation
 
-- Genre tags
+- Weather pairs creation
 
 - Set Alarm
 
@@ -59,4 +76,4 @@ _choose acceptable music tags_**(DISPLAY ALARM BUTTONS)**
 
 - Find weather (1min before alarm use some weather API go get up-to-date weather info)
 
-- Play song (weather is assigned value, tag/weather pairs exist in hash, find tag that matches user selections, fetch song with tag) 
+- Play song (weather is assigned value, tag/weather pairs exist in db, find tag that matches user selections, fetch song with tag) 
