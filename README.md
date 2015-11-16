@@ -46,11 +46,11 @@ Weather-based-music-selection alarm clock
 
 **Given** I’m a first time user, I **want** a splash/landing page with **purpose** to introduce the web app.
 
-     # HTML includes landing page with css animation + fun
+    # HTML includes landing page with css animation + fun
 
 **Given** I’m a first time user on the splash page, I **want** to register AND login(at once) **purpose** to be a unique id and interact securely.
 
-     # Button runs register + login
+    # Button runs register + login
 
 **Given** the time for my alarm arrives, I **want** MY weather-based music **purpose** to make me happy
 
@@ -58,7 +58,7 @@ Weather-based-music-selection alarm clock
 
 **Given** I hear my alarm, I **want** to turn off the song **purpose** I’m now awake and don’t need music
 
-     # Add dismiss button to end song and just display time 
+    # Add dismiss button to end song and just display time 
 
 ## Navigation flow
 
