@@ -20,7 +20,7 @@ body{
 }
 
 #pairings-table th{
-  background-color: #8b8b8b;
+  background-color: #486998;
   text-align: center;
 }
 
@@ -51,15 +51,17 @@ body .modal-content {
   height: 100%;
   background-color: #0f1620;
 }
-.btn, .btn-default:hover, .btn-default:focus{
+.btn, :not(.btn-danger) .btn-default:hover, .btn-default:focus, .btn-block:focus{
   color:white;
+  background-color: #272e38;
   font-weight: bold;
   font-size: 1em;
   border-width: 5px;
-  border-color: white;
+  border-color: #486998;
 }
 .btn-danger, .btn-danger:focus{
-  border-color: white;
+  border-color: #486998;
+  background-color: #d9534f;
 }
 .btn:hover{
   font-style: italic;
@@ -70,7 +72,7 @@ body .modal-content {
   border-color: white;
 }
 .btn.pairings_container{
-  background-color:rgb(121, 123, 126);
+  background-color:#272e38;
 }
 .weather{
 margin: 0 auto;
@@ -79,7 +81,7 @@ right: -10px;
 outline:none;
 font-size: 1.5em;
 text-align: center;
-background-color: transparent;
+background-color: #486998;
 border-radius:5px;
 border-width: 5px;
 width: 300px;
