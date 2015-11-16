@@ -345,7 +345,7 @@ a.button:hover{
   width: 108px;
   height: 55px;
   border-radius: 15px;
-  border: 5px solid white;
+  border: 5px solid #486998;
   vertical-align: top;
   display: inline-block;
   background: url('../alarm_btn.png');
