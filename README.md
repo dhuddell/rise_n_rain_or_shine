@@ -7,6 +7,8 @@ Deployed App: http://dhuddell.github.io/weather_front_end
 Full Stack Web Application
 Weather-based-music-selection alarm clock
 
+Wireframe: https://goo.gl/photos/41GugdEh4qewBc1e9
+
 ## USER STORIES
 ###Achieved:
 
