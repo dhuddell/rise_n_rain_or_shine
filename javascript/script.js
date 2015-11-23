@@ -194,9 +194,8 @@ $(document).ready(function(){
             alert("No Profile!");
           });
           profile_id = data.profile.id;
-          current_weather = 'ambient';
-          current_weather = SHORT_WEATHER_LOOKUP[current_weather];
-          console.log(current_weather);
+          current_weather = SHORT_WEATHER_LOOKUP[data.profile.current_weather];
+          console.log(data.profile.current_weather);
           $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
         // NAVIGATION
           $('#profile').hide();
@@ -208,6 +207,7 @@ $(document).ready(function(){
         // POPULATES TABLE
           weather_api.showPairs(token, function(err, data){
             handleError(err,data);
+            current_genre = 'ambient';
           // GETS GENRE FOR ALARM
             data['weather_pairs'].forEach(function(pair){
               if(pair.weather === current_weather){
