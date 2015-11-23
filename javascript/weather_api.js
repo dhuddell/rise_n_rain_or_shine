@@ -1,7 +1,7 @@
 'use strict';
 var weather_api = {
-  url: 'https://blooming-sands-2451.herokuapp.com',
-  // url: 'http://localhost:3000',
+  // url: 'https://blooming-sands-2451.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -12,6 +12,18 @@ var weather_api = {
   },
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
+
+readPairs: function readPairs(token, callback) {
+  this.ajax({
+    method: 'GET',
+    url: this.url + '/current',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    dataType: 'json'
+  }, callback);
+},
 
   register: function register(credentials, callback) {
     this.ajax({
@@ -121,22 +133,6 @@ createWeatherPair: function createWeatherPair(weather_pair, token, callback){
     data: JSON.stringify(weather_pair),    //NEED TO ADD PROFILE ID TO THIS
     dataType: 'json'
     }, callback)
-},
+}
 
-get_lat_lng: function get_lat_lng(zip_code, callback) {
-    this.ajax({
-      method: 'GET',
-      url: 'http://maps.googleapis.com/maps/api/geocode/json?address=' + zip_code
-    }, callback);
-},
-
-// Call to forecast.io asking for weather object ***********    B R O K E N    **************
-
-get_weather: function get_weather(latlng, callback) {
-    this.ajax({
-      method: 'GET',
-      url: 'https://api.forecast.io/forecast/0d2fae036c63eb41ba914a58600cb1ef/' + latlng,
-      contentType: 'application/json'
-    }, callback);
-  },
 };

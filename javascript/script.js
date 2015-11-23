@@ -3,21 +3,24 @@ $(document).ready(function(){
   ///////////////////////////////////////////////////////////////////////////
   // // Display and String normalizer
 
+  SHORT_WEATHER_LOOKUP = {
+    'clear-night': 'clear',
+    'clear-day': 'clear',
+    'rain': 'raining',
+    'snow': 'snowing',
+    'sleet': 'raining',
+    'wind': 'clear',
+    'fog': 'cloudy',
+    'cloudy': 'cloudy',
+    'partly-cloudy-day': 'cloudy',
+    'partly-cloudy-night': 'cloudy'
+  }
+
+
     // Landing Page Display
-      $('#logout').hide();
+      $("#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit").hide();
 
-      $("#profile_buttons_display").hide();
-      $('#profile_buttons').hide();
-      $('#profile').hide();
-      $('#profile_update').hide();
-      $('#profile_submit').hide();
-
-      $('#pairs').hide();
-      $('#pairings-table').hide();
-
-      $('#sc-widget').hide();
-      $('.alarm-button').hide();
-      $('#weather_display').hide();
+      $('#pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display').hide();
 
     // Normalize strings
       String.prototype.capitalizeFirstLetter = function() {
@@ -44,11 +47,14 @@ $(document).ready(function(){
     };
 
 
-    var handleError = function handleError(error, data) {
+    var handleError = function handleError(error, data, optional_alert) {
       if (error) {
         console.error(error);
-        return;
-      } else{
+        if(optional_alert){
+          optional_alert();
+        }
+        throw error;
+      } else {
         console.log(data);
       }
     };
@@ -60,9 +66,10 @@ $(document).ready(function(){
       $('#register').on('submit', function(e) {
         var credentials = wrap('credentials', form2object(this));
         weather_api.register(credentials, function(err, data){
-          handleError(err, data);
+          handleError(err, data, function(){
+            alert("Invalid registration");
+          });
           $('#register_form').hide();
-          console.log("thing");
           $('#login_form').css('margin', '0px auto');
           $('#spacer').addClass('col-xs-3');
         });
@@ -73,7 +80,9 @@ $(document).ready(function(){
       $('#login').on('submit', function(e) {
         var credentials = wrap('credentials', form2object(this));
         weather_api.login(credentials, function(err, data){
-          handleError(err,data);
+          handleError(err,data, function(){
+            alert("Invalid credentials");
+          });
           token = data.user.token;
           user_id = data.user.id;
           $('.modal-dialog').hide();
@@ -89,12 +98,10 @@ $(document).ready(function(){
         weather_api.logout(user_id, token, function(err, data){
           handleError(err,data);
           console.log("logged out");
-          $('#logout').hide();
-          $("#profile_buttons_display").hide();
           $('.modal-dialog').show();
           $('#register_form').show();
-          $('#profile_buttons').hide();
-          $('#profile').hide();
+          $("#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit").hide();
+          $('#pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display').hide();
         });
         e.preventDefault();
       });
@@ -143,7 +150,8 @@ $(document).ready(function(){
         $('#pairs').show();
         $('#pairings-table').show();
         $('.alarm-button').show();
-        $('#weather_display').show();
+        $('#weather_display, #genre_display').show();
+
       });
 
   ///////////////////////////////////////////////////////////////////////////
@@ -159,7 +167,7 @@ $(document).ready(function(){
           $('#pairs').hide();
           $('#pairings-table').hide();
           $('.alarm-button').hide();
-          $('#weather_display').hide();
+          $('#weather_display, #genre_display').hide();
         })
       });
 
@@ -182,23 +190,34 @@ $(document).ready(function(){
           "zip_code": $("#zip_code").val(),
         });
         weather_api.updateProfile(profile, user_id, token, function(err, data){
-          handleError(err,data);
+          handleError(err,data, function(){
+            alert("No Profile!");
+          });
           profile_id = data.profile.id;
+          current_weather = SHORT_WEATHER_LOOKUP[data.profile.current_weather];
           console.log(data.profile.current_weather);
           $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
-          console.log(data);
         // NAVIGATION
           $('#profile').hide();
           $('#profile_buttons_display').show();
           $('#pairs').show();
           $('.alarm-button').show();
-          $('#weather_display').show();
+          $('#weather_display, #genre_display').show();
           $('#pairings-table').show();
         // POPULATES TABLE
           weather_api.showPairs(token, function(err, data){
             handleError(err,data);
-            console.log(data);
+          // GETS GENRE FOR ALARM
+            data['weather_pairs'].forEach(function(pair){
+              if(pair.weather === current_weather){
+                console.log(pair.genre);
+                current_genre = pair.genre;
+                $('.genre').val(pair.genre.replace(/-/g,' ').capitalizeFirstLetter());
+              }
+            });
+
             $('#examples').remove();
+            $('#pairings-table td').remove();
             data['weather_pairs'].forEach(function(pair){
               $('#pairings-table tr:last').after('<tr><td>' + pair.weather.capitalizeFirstLetter() +  '</td><td>' + pair.genre.replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
             });
