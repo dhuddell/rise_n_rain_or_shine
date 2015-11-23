@@ -207,6 +207,7 @@ $(document).ready(function(){
         // POPULATES TABLE
           weather_api.showPairs(token, function(err, data){
             handleError(err,data);
+            current_genre = 'ambient';
           // GETS GENRE FOR ALARM
             data['weather_pairs'].forEach(function(pair){
               if(pair.weather === current_weather){
