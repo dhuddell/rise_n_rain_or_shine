@@ -194,8 +194,9 @@ $(document).ready(function(){
             alert("No Profile!");
           });
           profile_id = data.profile.id;
-          current_weather = SHORT_WEATHER_LOOKUP[data.profile.current_weather];
-          console.log(data.profile.current_weather);
+          current_weather = 'ambient';
+          current_weather = SHORT_WEATHER_LOOKUP[current_weather];
+          console.log(current_weather);
           $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
         // NAVIGATION
           $('#profile').hide();
