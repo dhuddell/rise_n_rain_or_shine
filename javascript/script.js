@@ -3,18 +3,18 @@ $(document).ready(function(){
   ///////////////////////////////////////////////////////////////////////////
   // // Display and String normalizer
 
-  SHORT_WEATHER_LOOKUP = {
-    'clear-night': 'clear',
-    'clear-day': 'clear',
-    'rain': 'raining',
-    'snow': 'snowing',
-    'sleet': 'raining',
-    'wind': 'clear',
-    'fog': 'cloudy',
-    'cloudy': 'cloudy',
-    'partly-cloudy-day': 'cloudy',
-    'partly-cloudy-night': 'cloudy'
-  }
+    SHORT_WEATHER_LOOKUP = {
+      'clear-night': 'clear',
+      'clear-day': 'clear',
+      'rain': 'raining',
+      'snow': 'snowing',
+      'sleet': 'raining',
+      'wind': 'clear',
+      'fog': 'cloudy',
+      'cloudy': 'cloudy',
+      'partly-cloudy-day': 'cloudy',
+      'partly-cloudy-night': 'cloudy'
+    }
 
 
     // Landing Page Display
