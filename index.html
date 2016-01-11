@@ -4,6 +4,9 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/clock_style.css">
   <link rel="icon" type="image/png" href="favicon.ico">
+
+  <link href="fonts/fontello.css" rel="stylesheet">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>Weather!</title>
@@ -25,7 +28,7 @@
                 <div class="col-xs-6 register" id="register_form">
                   <div class="well">
                     <form  id="register" class='register_form'>
-                      <span style="font-size: 1.5em;">Registration?</span><br>
+                      <span style="font-size: 1.5em;">Registration</span><br>
                       Email <input type='email' class='form-control' name='email' placeholder='Your email' required><br>
                       Password <input type='password' class='form-control' name='password' required><br>
                       Password Confirm <input type='password' class='form-control' name='password_confirmation' required><br>
@@ -37,7 +40,7 @@
                 <div class="col-xs-6 login" id="login_form">
                   <div class="well">
                     <form  id="login" class='login_form'>
-                      <span style="font-size: 1.5em;">Loginstration!</span><br>
+                      <span style="font-size: 1.5em;">Login</span><br>
                       Email <input type='email' class='form-control' name='email' placeholder="Your email" required><br>
                       Password <input type='password' class='form-control' name='password' required><br>
                       <button type="submit" class='btn btn-default btn-block' form="login">Submit</button>
@@ -51,16 +54,18 @@
       <!-- SoundCloud Widet -->
         <!-- <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe> -->
       <!-- CLOCK MAGIC HAPPY TIME -->
-        <div id="clock" class="dark">
-          <div class="display">
-            <div class="weekdays"></div>
-            <div class="ampm"></div>
-            <div class="alarm"></div>
-            <div class="digits"></div>
+        <div class="clock_container">
+          <div id="clock" class="dark">
+            <div class="display">
+              <div class="weekdays"></div>
+              <div class="ampm"></div>
+              <div class="alarm"></div>
+              <div class="digits"></div>
+            </div>
           </div>
-        </div>
-        <div class="button-holder">
-          <a class="alarm-button"></a>
+          <div class="button-holder">
+            <a class="alarm-button"></a>
+          </div>
         </div>
       <!-- CLOCK POPUP HAPPY TIME -->
         <div class="overlay">
@@ -101,13 +106,13 @@
       <div class="col-md-4 side">
         <button type="button" class="btn btn-default btn-block" id='profile_buttons_display'>Profile?</button>
         <div class="row" id='profile_buttons'>
-          <div class="col-xs-3">
+          <div class="col-xs-4">
             <button type="button" class="btn btn-default btn-block" id='profile_create'>Create?</button>
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-4">
             <button type="button" class="btn btn-danger btn-block" onclick="return confirm('Are you sure?')" id='profile_destroy'>DESTROY!</button>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-4">
             <button type="button" class="btn btn-default btn-block" id='profile_edit'>Edit! / Fill!</button>
           </div>
         </div>
@@ -129,7 +134,7 @@
         </form>
       <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
         <form  id="pairs">
-          Please pair what genre you'd like for weather conditions!<br>
+          Now choose which genres you like for in different weather!<br>
           <div class='row'>
             <!-- weather -->
             <div class="col-xs-6">
@@ -165,13 +170,15 @@
             </tr>
           </table>
         </div>
-        <div id='weather_display'>
-          <h3> YOUR CURRENT WEATHER</h3>
-          <textarea rows=1 class="weather pp"></textarea>
-        </div>
-        <div id='genre_display'>
-          <h3> YOUR CURRENT GENRE</h3>
-          <textarea rows=1 class="genre pp"></textarea>
+        <div class='current_banner'>
+          <div id='weather_display'>
+            <h3> YOUR CURRENT WEATHER</h3>
+            <textarea rows=1 class="weather pp"></textarea>
+          </div>
+          <div id='genre_display'>
+            <h3> YOUR CURRENT GENRE</h3>
+            <textarea rows=1 class="genre pp"></textarea>
+          </div>
         </div>
       </div>
     </div>

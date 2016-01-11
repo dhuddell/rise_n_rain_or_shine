@@ -23,13 +23,13 @@ body{
   background-color: #486998;
   text-align: center;
 }
-
+/*
 body .modal-content {
-    /* new custom width */
+
     width: 760px;
-    /* must be half of the width, minus scrollbar on the left (30px) */
+     must be half of the width, minus scrollbar on the left (30px)
     margin-left: -80px;
-}
+}*/
 
 .happy{
   height: 100%;
@@ -85,4 +85,10 @@ background-color: #486998;
 border-radius:5px;
 border-width: 5px;
 width: 300px;
+}
+#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit, #pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display{
+  display: none;
+}
+.current_banner{
+  text-align: center;
 }

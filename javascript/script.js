@@ -17,10 +17,10 @@ $(document).ready(function(){
     }
 
 
-    // Landing Page Display
-      $("#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit").hide();
+    // // Landing Page Display
+    //   $("#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit").hide();
 
-      $('#pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display').hide();
+    //   $('#pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display').hide();
 
     // Normalize strings
       String.prototype.capitalizeFirstLetter = function() {
