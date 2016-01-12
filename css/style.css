@@ -50,7 +50,7 @@ body{
   font-weight: normal;
   text-align: center;
   font-size: 5em;
-  line-height: 200%;
+  line-height: 160%;
 }
 .btn, :not(.btn-danger) /*.btn-default:hover,*/ .btn-default:focus, .btn-block:focus{
   color:white;
