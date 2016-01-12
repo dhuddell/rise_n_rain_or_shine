@@ -149,7 +149,7 @@ $(document).ready(function(){
         $('#profile_buttons_display').show();
         $('#pairs').show();
         $('#pairings-table').show();
-        $('.alarm-button').show();
+        $('.alarm-button').css("display", "inline-block");
         $('#weather_display, #genre_display').show();
 
       });
@@ -201,7 +201,7 @@ $(document).ready(function(){
           $('#profile').hide();
           $('#profile_buttons_display').show();
           $('#pairs').show();
-          $('.alarm-button').show();
+          $('.alarm-button').css("display", "inline-block");
           $('#weather_display, #genre_display').show();
           $('#pairings-table').show();
         // POPULATES TABLE
@@ -215,7 +215,7 @@ $(document).ready(function(){
               if(pair.weather === current_weather){
                 console.log(pair.genre);
                 current_genre = pair.genre;
-                $('.genre').val(pair.genre.replace(/-/g,' ').capitalizeFirstLetter());
+                $('.genre').val(pair.genre.replace(/_/g,' ').capitalizeFirstLetter());
               }
             });
 

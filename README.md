@@ -2,7 +2,7 @@
 
 https://github.com/dhuddell/weather_back_end
 
-Deployed App: http://dhuddell.github.io/weather_front_end
+Deployed App: http://dhuddell.github.io/rise_n_rain_or_shine
 
 Full Stack Web Application
 Weather-based-music-selection alarm clock

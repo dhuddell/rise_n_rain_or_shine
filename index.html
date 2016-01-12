@@ -5,8 +5,9 @@
   <link rel="stylesheet" type="text/css" href="css/clock_style.css">
   <link rel="icon" type="image/png" href="favicon.ico">
 
-  <link href="fonts/fontello.css" rel="stylesheet">
-
+  <link href="assets/fonts/fontello.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>Weather!</title>
@@ -64,7 +65,7 @@
             </div>
           </div>
           <div class="button-holder">
-            <a class="alarm-button"></a>
+            <a class="alarm-button"><i class="icon-clock"></i></a>
           </div>
         </div>
       <!-- CLOCK POPUP HAPPY TIME -->
@@ -98,8 +99,9 @@
         </div>
       </div>
     <!--         LEFT LEFT LEFT LEFT LEFT LEFT LEFT COLUMN               -->
-      <div class="col-md-2 col-md-pull-6 side">
+      <div class="col-md-2 col-md-pull-6 left side">
         <div id="thingHolder">
+        Rise <br> -n- <br> Rain <br> or <br> Shine
         </div>
       </div>
     <!--         RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT COLUMN              -->
@@ -120,7 +122,7 @@
         <form id="profile">
           Nickname <input type='text' class='form-control' id='nickname' placeholder='What to call you' required><br>
           Zipcode <input type='number' class='form-control' id='zip_code' placeholder='ex: 90210' pattern="[0-9]{3,5}" oninvalid="setCustomValidity('Please enter valid zip')" title="5 numbers required" required><br>
-          Fav Meme  <select id="fav_meme" class="form-control">
+          Favorite Meme  <select id="fav_meme" class="form-control">
             <option value="doge">Doge</option>
             <option value="doge">Doge</option>
             <option value="doge">Doge</option>
@@ -134,7 +136,7 @@
         </form>
       <!--    CHOOSE WEATHER/MUSIC PAIRS      -->
         <form  id="pairs">
-          Now choose which genres you like for in different weather!<br>
+          Pair what genre to hear for which forecast!<br>
           <div class='row'>
             <!-- weather -->
             <div class="col-xs-6">
@@ -188,6 +190,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
   <script type="text/javascript" src="javascript/bootstrap.min.js"> </script>
   <script type="text/javascript" src="javascript/weather_api.js"></script>
-  <script type="text/javascript" src="javascript/script.js"></script>
   <script type="text/javascript" src="javascript/alarm.js"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
+
 </body>

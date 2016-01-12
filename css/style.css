@@ -5,6 +5,7 @@ body,
   height: 100%;
   padding-left:0px;
   padding-right:0px;
+  font-family: "Josefin Slab";
 }
 body{
   margin:0px;
@@ -23,14 +24,6 @@ body{
   background-color: #486998;
   text-align: center;
 }
-/*
-body .modal-content {
-
-    width: 760px;
-     must be half of the width, minus scrollbar on the left (30px)
-    margin-left: -80px;
-}*/
-
 .happy{
   height: 100%;
   padding:0px;
@@ -43,15 +36,23 @@ body .modal-content {
 
   background-color: #272e38;
 }
-
 .side{
+  font-family: "Josefin Slab";
   color:white;
   font-weight: bold;
   margin:0px;
   height: 100%;
   background-color: #0f1620;
 }
-.btn, :not(.btn-danger) .btn-default:hover, .btn-default:focus, .btn-block:focus{
+
+.left{
+  font-family: "Pacifico";
+  font-weight: normal;
+  text-align: center;
+  font-size: 5em;
+  line-height: 160%;
+}
+.btn, :not(.btn-danger) /*.btn-default:hover,*/ .btn-default:focus, .btn-block:focus{
   color:white;
   background-color: #272e38;
   font-weight: bold;
@@ -64,27 +65,30 @@ body .modal-content {
   background-color: #d9534f;
 }
 .btn:hover{
-  font-style: italic;
   color:white;
-  font-weight: bold;
-  font-size: 1em;
-  border-width: 5px;
+  background-color: #272e38;
   border-color: white;
+}
+
+.btn-danger:hover{
+  border-color: white;
+  background-color: #d9534f;
+
 }
 .btn.pairings_container{
   background-color:#272e38;
 }
 .pp{
-margin: 0 auto;
-position: relative;
-right: -10px;
-outline:none;
-font-size: 1.5em;
-text-align: center;
-background-color: #486998;
-border-radius:5px;
-border-width: 5px;
-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  right: -10px;
+  outline:none;
+  font-size: 1.5em;
+  text-align: center;
+  background-color: #486998;
+  border-radius:5px;
+  border-width: 5px;
+  width: 300px;
 }
 #logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit, #pairs, #pairings-table, #sc-widget, .alarm-button, #weather_display, #genre_display{
   display: none;
