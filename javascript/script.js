@@ -215,7 +215,7 @@ $(document).ready(function(){
               if(pair.weather === current_weather){
                 console.log(pair.genre);
                 current_genre = pair.genre;
-                $('.genre').val(pair.genre.replace(/-/g,' ').capitalizeFirstLetter());
+                $('.genre').val(pair.genre.replace(/_/g,' ').capitalizeFirstLetter());
               }
             });
 

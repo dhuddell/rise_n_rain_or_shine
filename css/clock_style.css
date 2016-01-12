@@ -9,7 +9,7 @@
   position:relative;
 }
 .clock_container{
-  padding-top:10%;
+  padding-top:5%;
 }
 
 #clock:after{
@@ -315,7 +315,6 @@
 
 .button-holder{
   text-align:center;
-  padding-bottom:100px;
 }
 
 a.button{
@@ -339,18 +338,21 @@ a.button{
   z-index: 1;
 }
 
-a.button:hover{
-  opacity:0.9;
+.alarm-button:hover{
+  color: white;
+  border-color: white;
 }
 
 .alarm-button{
-  width: 108px;
-  height: 55px;
+  width: 30%;
+  color: white;
+  font-size: 2em;
+  margin-top: 2%;
   border-radius: 15px;
   border: 5px solid #486998;
   vertical-align: top;
   display: inline-block;
-  background: url('../alarm_btn.png');
+  /*background: url('../alarm_btn.png');*/
   position: relative;
   z-index: 0;
   cursor: pointer;
