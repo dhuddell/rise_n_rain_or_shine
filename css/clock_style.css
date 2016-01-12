@@ -9,7 +9,7 @@
   position:relative;
 }
 .clock_container{
-  padding-top:5%;
+  padding-top:10%;
 }
 
 #clock:after{
@@ -351,7 +351,7 @@ a.button{
   border-radius: 15px;
   border: 5px solid #486998;
   vertical-align: top;
-  display: inline-block;
+  /*display: inline-block;*/
   /*background: url('../alarm_btn.png');*/
   position: relative;
   z-index: 0;
@@ -366,11 +366,11 @@ a.button{
 
 
 /* Hide the arrows dispayed in number inputs in webkit */
-
+/*
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
-}
+}*/
 
 
 .overlay{
@@ -441,7 +441,7 @@ input::-webkit-inner-spin-button {
   margin:3px;
   border-radius:10px;
 }
-
+/*
 .button.blue{
   background-color:grey;
 
@@ -450,7 +450,7 @@ input::-webkit-inner-spin-button {
   background-image:linear-gradient(top, #86d3e4, #82cddd);
 
   border-color:grey;
-}
+}*/
 
 
 #time-is-up{
@@ -466,9 +466,9 @@ input::-webkit-inner-spin-button {
   padding: 60px 0 40px;
   font-size: 30px;
 }
-
+/*
 #time-is-up .button{
   padding: 12px 20px;
   box-shadow: 0 2px 2px #eee;
-}
+}*/
 

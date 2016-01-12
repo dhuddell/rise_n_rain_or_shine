@@ -5,6 +5,7 @@ body,
   height: 100%;
   padding-left:0px;
   padding-right:0px;
+  font-family: "Josefin Slab";
 }
 body{
   margin:0px;
@@ -35,13 +36,21 @@ body{
 
   background-color: #272e38;
 }
-
 .side{
+  font-family: "Josefin Slab";
   color:white;
   font-weight: bold;
   margin:0px;
   height: 100%;
   background-color: #0f1620;
+}
+
+.left{
+  font-family: "Pacifico";
+  font-weight: normal;
+  text-align: center;
+  font-size: 5em;
+  line-height: 200%;
 }
 .btn, :not(.btn-danger) /*.btn-default:hover,*/ .btn-default:focus, .btn-block:focus{
   color:white;
