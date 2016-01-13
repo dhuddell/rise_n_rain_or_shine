@@ -1,7 +1,7 @@
 'use strict';
 var weather_api = {
-   url: 'https://blooming-sands-2451.herokuapp.com',
-  //url: 'http://localhost:3000',
+   // url: 'https://blooming-sands-2451.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -132,7 +132,18 @@ createWeatherPair: function createWeatherPair(weather_pair, token, callback){
     contentType: 'application/json',
     data: JSON.stringify(weather_pair),    //NEED TO ADD PROFILE ID TO THIS
     dataType: 'json'
-    }, callback)
-}
+    }, callback);
+},
 
+getTrack: function getTrack(token, callback) {
+  this.ajax({
+    method: 'GET',
+    url: this.url +  '/track',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    dataType: 'json'
+
+  }, callback);
+}
 };
