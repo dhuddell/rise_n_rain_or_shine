@@ -164,6 +164,7 @@ $(document).ready(function(){
           console.log('Deleted');
           $('#profile_buttons_display').show();
           $('#profile_buttons').hide();
+          $('#profile_update').hide();
           $('#pairs').hide();
           $('#pairings-table').hide();
           $('.alarm-button').hide();
@@ -178,8 +179,8 @@ $(document).ready(function(){
           $('#profile_buttons').hide();
           $('#profile').show();
           $('#profile_update').show();
-          $('#nickname').val(data.profiles[0]['nickname']);
-          $('#zip_code').val(data.profiles[0]['zip_code']);
+          $('#nickname').val(data.profile.nickname);
+          $('#zip_code').val(data.profile.zip_code);
         });
       });
 
@@ -224,7 +225,10 @@ $(document).ready(function(){
             data['weather_pairs'].forEach(function(pair){
               $('#pairings-table tr:last').after('<tr><td>' + pair.weather.capitalizeFirstLetter() +  '</td><td>' + pair.genre.replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
             });
-          })
+          });
+        });
+        weather_api.getTrack(token, function(err, data){
+            handleError(err,data);
         });
       });
 
@@ -243,6 +247,7 @@ $(document).ready(function(){
           $('#pairings-table tr:last').after(
             '<tr><td>' + $('#weather').val().capitalizeFirstLetter() +  '</td><td>' + $('#genre').val().replace(/_/g,' ').capitalizeFirstLetter() + '</td></tr>');
       });
+
 });
 
 
