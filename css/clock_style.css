@@ -338,12 +338,12 @@ a.button{
   z-index: 1;
 }
 
-.alarm-button:hover{
+.alarm-button:hover, #pause_button:hover{
   color: white;
   border-color: white;
 }
 
-.alarm-button{
+.alarm-button, #pause_button{
   width: 30%;
   color: white;
   font-size: 2em;
@@ -465,6 +465,7 @@ input::-webkit-inner-spin-button {
 #time-is-up h2{
   padding: 60px 0 40px;
   font-size: 30px;
+  text-align: center;
 }
 /*
 #time-is-up .button{
@@ -472,3 +473,9 @@ input::-webkit-inner-spin-button {
   box-shadow: 0 2px 2px #eee;
 }*/
 
+#pause_button{
+  height:50px;
+  margin: 0 auto;
+  top: -50px;
+  font-size: 1em;
+}

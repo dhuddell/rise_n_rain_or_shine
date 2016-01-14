@@ -16,11 +16,10 @@ $(document).ready(function(){
       'partly-cloudy-night': 'cloudy'
     };
 
-     var widget = SC.Widget($('#sc-widget'));
-     widget.bind(SC.Widget.Events.READY, function() {
-       console.log('Player Ready...');
-     });
-
+    widget = SC.Widget(document.getElementById('sc-widget'));
+    widget.bind(SC.Widget.Events.READY, function() {
+      console.log('Player Ready...');
+    });
 
     // // Landing Page Display
     //   $("#logout, #profile_buttons_display, #profile_buttons, #profile, #profile_update, #profile_submit").hide();
@@ -152,6 +151,7 @@ $(document).ready(function(){
         $('#profile').hide();
         $('#profile_submit').hide();
         $('#profile_buttons_display').show();
+        $('#profile_submit').hide;
         $('#pairs').show();
         $('#pairings-table').show();
         $('.alarm-button').css("display", "inline-block");
@@ -236,7 +236,15 @@ $(document).ready(function(){
             handleError(err,data);
             user_track = data.track;
             widget.load(user_track);
+            console.log("loaded " + user_track);
+
         });
+      });
+
+      $('#pause_button').on('click', function() {
+        widget.pause();
+        console.log("paused " + user_track);
+        $(".overlay").hide();
       });
 
     // Weather Pair Creation
