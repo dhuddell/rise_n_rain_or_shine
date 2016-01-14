@@ -229,6 +229,7 @@ $(document).ready(function(){
         });
         weather_api.getTrack(token, function(err, data){
             handleError(err,data);
+            user_track = data.track;
         });
       });
 
