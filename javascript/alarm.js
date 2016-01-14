@@ -113,6 +113,9 @@ $(function(){
     }
     else if(alarm_counter == 0){
       $('#time-is-up').text("Hey " + $('#nickname').val() + "! You're listening to " + current_genre.replace(/_/g,' ').capitalizeFirstLetter() + '.');
+      var widget = SC.Widget($('#sc-widget'));
+
+      widget.play();
       time_is_up.fadeIn();
 
       // Play the alarm sound. This will fail
