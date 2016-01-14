@@ -139,6 +139,8 @@ $(document).ready(function(){
           "fav_meme": $("#fav_meme").val(),
           "user_id":  user_id
         });
+        current_genre = 'Default: Ambient';
+        $('.genre').val(current_genre);
         weather_api.createProfile(profile, user_id, token, function(err, data){
           handleError(err,data);
           profile_id = data.profile.id;
@@ -147,6 +149,17 @@ $(document).ready(function(){
           console.log(data);
           $('.weather').val(data.profile.current_weather.replace(/-/g,' ').capitalizeFirstLetter());
         });
+        weather_api.showPairs(token, function(err, data){
+          handleError(err,data);
+          current_weather = SHORT_WEATHER_LOOKUP[data.profile.current_weather];
+
+
+        // GETS GENRE FOR ALARM
+
+        });
+        user_track = "https://soundcloud.com/justmusiclabel/weightless-marconi-union";
+        widget.load(user_track);
+        console.log("loaded " + user_track);
         e.preventDefault();
         $('#profile').hide();
         $('#profile_submit').hide();
@@ -172,6 +185,7 @@ $(document).ready(function(){
           $('#profile_update').hide();
           $('#pairs').hide();
           $('#pairings-table').hide();
+          $('#pairings-table tr:first').after("");
           $('.alarm-button').hide();
           $('#weather_display, #genre_display').hide();
         })

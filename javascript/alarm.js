@@ -112,7 +112,11 @@ $(function(){
       alarm.addClass('active');
     }
     else if(alarm_counter == 0){
-      $('.time-is-up').text("Hey " + $('#nickname').val() + "! You're listening to " + current_genre.replace(/_/g,' ').capitalizeFirstLetter() + '.');
+      if(current_genre !== undefined){
+        $('.time-is-up').text("Hey " + $('#nickname').val() + "! You're listening to " + current_genre.replace(/_/g,' ').capitalizeFirstLetter() + '.');
+      } else{
+        $('.time-is-up').text("Hey " + $('#nickname').val() + "! You're listening to the default, ambient.");
+      }
 
       widget.play();
       console.log("Playing " + user_track);
