@@ -14,7 +14,12 @@ $(document).ready(function(){
       'cloudy': 'cloudy',
       'partly-cloudy-day': 'cloudy',
       'partly-cloudy-night': 'cloudy'
-    }
+    };
+
+     var widget = SC.Widget($('#sc-widget'));
+     widget.bind(SC.Widget.Events.READY, function() {
+       console.log('Player Ready...');
+     });
 
 
     // // Landing Page Display
@@ -230,6 +235,7 @@ $(document).ready(function(){
         weather_api.getTrack(token, function(err, data){
             handleError(err,data);
             user_track = data.track;
+            widget.load(user_track);
         });
       });
 
