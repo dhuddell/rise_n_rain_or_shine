@@ -17,7 +17,8 @@
     <div class="container-fluid" id="pageview">
     <!--             MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE COLUMN               -->
       <div class="col-md-6 col-md-push-2 mid">
-
+<!-- SoundCloud Widet -->
+          <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
         <button type="submit" class='btn btn-default btn-block' style="background-color: #0f1620;color:white; margin-bottom:100px" id="logout">Logout!</button>
         <!--      FORMS MODAL          -->
         <div class= 'modal-dialog'>
@@ -91,11 +92,8 @@
         </div>
         <div class="overlay">
           <div id="time-is-up">
-            <div class="button-holder">
-              <a class="button blue">Close</a>
-            </div>
-            <!-- SoundCloud Widet -->
-            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+          <span class="time-is-up"></span>
+            <button type="button" class="btn btn-block" id="pause_button">Dismiss Alarm</button>
           </div>
         </div>
       </div>
@@ -191,7 +189,8 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
   <script type="text/javascript" src="javascript/bootstrap.min.js"> </script>
   <script type="text/javascript" src="javascript/weather_api.js"></script>
+  <script type="text/javascript" src="javascript/script.js"></script>
   <script type="text/javascript" src="javascript/alarm.js"></script>
-    <script type="text/javascript" src="javascript/script.js"></script>
+
 
 </body>
